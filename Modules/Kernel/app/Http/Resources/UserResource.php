@@ -1,0 +1,27 @@
+<?php
+
+namespace Modules\Kernel\Http\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+/** @mixin \Modules\Kernel\Models\User */
+class UserResource extends JsonResource
+{
+    public function toArray(Request $request): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'role' => $this->role?->value,
+            'role_label' => $this->role?->label(),
+            'poste' => $this->poste?->value,
+            'poste_label' => $this->poste?->label(),
+            'dg_disponible' => $this->when($this->poste?->value === 'dg', fn () => $this->dg_disponible),
+            'direction' => new DirectionResource($this->whenLoaded('direction')),
+            'direction_id' => $this->direction_id,
+            'created_at' => $this->created_at,
+        ];
+    }
+}

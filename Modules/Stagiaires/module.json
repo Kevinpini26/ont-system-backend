@@ -1,0 +1,11 @@
+{
+    "name": "Stagiaires",
+    "alias": "stagiaires",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Stagiaires\\Providers\\StagiairesServiceProvider"
+    ],
+    "files": []
+}

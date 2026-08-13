@@ -1,0 +1,11 @@
+{
+    "name": "Public",
+    "alias": "public",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Public\\Providers\\PublicServiceProvider"
+    ],
+    "files": []
+}
